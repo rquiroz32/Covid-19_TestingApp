@@ -1,3 +1,31 @@
+/**$(document).ready(function () {
+    //API key for google geocode
+    var apiKEY = "AIzaSyBNh5KfG7ZYFdl2CMuBiP47FmjmFQvs-aE";
+    //Making empty strings to be defined with places
+    var addressOfUser = "";
+    var endPtAddress = "";
+    var sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressOfUser + "&key=" + apiKEY;
+    var placeDetailsURL = "";
+    //Usine Julie's address as an example
+    addressOfUser = "1+Richmond+St,+New+Brunswick,+NJ"
+    sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressOfUser + "&key=" + apiKEY;
+    $.ajax({
+        url: sampleURL,
+        method: "GET"
+    }).then(function (response) {
+        var startPlaceId = response.results[0].place_id;
+    });
+    endPtAddress = "Rite+Aid,+Parsippany,+NJ"
+    sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + endPtAddress + "&key=" + apiKEY;
+    $.ajax({
+        url: sampleURL,
+        method: "GET"
+    }).then(function (response) {
+        var typeOfBusiness = response.results[0].types;
+        console.log(typeOfBusiness);
+    });
+}) */
+
 
 var apiKey = 'SWTXu3KMyXT1DwXvXayGN6j8dP4H9ZlmmqPfFWe89kQ'
 var discoverQueryURL = 'https://discover.search.hereapi.com/v1/discover?apikey='+apiKey+'&q=Covid&at=30.22,-92.02&limit=10'
