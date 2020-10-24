@@ -1,9 +1,10 @@
 $(document).ready(function () {
     var apiKEY = "AIzaSyBNh5KfG7ZYFdl2CMuBiP47FmjmFQvs-aE";
     var covidTestAddress = "";
-    var testSiteArray = []
+    var testSiteArray = [];
     var sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + covidTestAddress + "&key=" + apiKEY;
     var placeDetailsURL = "";
+    var typeEstablishmentArray = [];
 
     //API key for hereAPI
     var hereApiKey = 'SWTXu3KMyXT1DwXvXayGN6j8dP4H9ZlmmqPfFWe89kQ'
@@ -28,8 +29,6 @@ $(document).ready(function () {
 
             zipLat = response.items[0].position.lat
             zipLong = response.items[0].position.lng
-            console.log(zipLat)
-            console.log(zipLong)
 
 
 
@@ -40,7 +39,6 @@ $(document).ready(function () {
 
             }).then(function (response) {
 
-                console.log(response)
                 for (i = 0; i < response.items.length; i++) {
 
                     var testSiteObject = {
@@ -49,14 +47,15 @@ $(document).ready(function () {
                         website: response.items[i].contacts[0].www[0].value,
                         lat: response.items[i].access[0].lat,
                         long: response.items[i].access[0].lng,
-                    
+
                     }
 
-                 
-                    testSiteArray.push(testSiteObject)
-                    
+
+                    testSiteArray.push(testSiteObject);
+
                 }
-                console.log(testSiteArray)
+                //Feeding this information into a function to get more information
+                getInfoFromGoogle(testSiteArray);
 
             });// closes nested Ajax
 
@@ -65,20 +64,25 @@ $(document).ready(function () {
 
     }
 
+    function getInfoFromGoogle(testSiteArray) {
+        for(var i = 0; i<testSiteArray.length ; i++){
+            //Getting the address and using it to update sampleURL
+            covidTestAddress = testSiteArray[i].address;
+            sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + covidTestAddress + "&key=" + apiKEY;
 
-
-
-
-    covidTestAddress = "Rite+Aid,+Parsippany,+NJ"
-    sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + covidTestAddress + "&key=" + apiKEY;
-    $.ajax({
-        url: sampleURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        var endPlaceId = response.results[0].place_id;
-        placeDetailsURL = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + endPlaceId + "&fields=name,rating,formatted_phone_number&key=" + apiKEY;
-    });
+            //Making ajax call for each one
+            $.ajax({
+                url: sampleURL,
+                method: "GET"
+            }).then(function (response) {
+                var typeEstablishment = response.results[0].types;
+                typeEstablishment = JSON.stringify(typeEstablishment);
+                typeEstablishmentArray.push(typeEstablishment);
+            });
+        
+        }
+        console.log(typeEstablishmentArray);
+    }
 
 
     geoPosition_and_TestingSites();
