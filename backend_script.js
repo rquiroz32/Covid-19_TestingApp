@@ -12,13 +12,14 @@ $(document).ready(function () {
     var zipLong
 
     // Returns Geo Positionging of the location, currently hardcoded to 07005
-    var zipCode = '07005'
-    var geoCodeQuery = 'https://geocode.search.hereapi.com/v1/geocode?apikey=' + hereApiKey + '&q=' + zipCode + ';country=USA'
+    var zipCode 
+  
 
 
 
     function geoPosition_and_TestingSites() {
-
+        //build out query for zip code 
+        var geoCodeQuery = 'https://geocode.search.hereapi.com/v1/geocode?apikey=' + hereApiKey + '&q=' + zipCode + ';country=USA'
 
         $.ajax({
             url: geoCodeQuery,
@@ -31,8 +32,9 @@ $(document).ready(function () {
             zipLong = response.items[0].position.lng
 
 
-
+            // build out query for test site locations
             var discoverQueryURL = 'https://discover.search.hereapi.com/v1/discover?apikey=' + hereApiKey + '&q=Covid&at=' + zipLat + ',' + zipLong + '&limit=10'
+
             $.ajax({
                 url: discoverQueryURL,
                 method: "GET"
@@ -85,7 +87,18 @@ $(document).ready(function () {
     }
 
 
-    geoPosition_and_TestingSites();
+
+
+    // on click event to search by zip code and return covid test sites
+    $("#search-button").on("click", function(event){
+        event.preventDefault();
+        console.log("successful on click")
+        zipCode = $("#search-box").val().trim();
+        console.log(zipCode)
+
+        geoPosition_and_TestingSites();
+    })//closes zip code search on click event
+    
 
 
 
@@ -93,22 +106,4 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+})// closes doc.ready function
