@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var apiKEY = "AIzaSyBNh5KfG7ZYFdl2CMuBiP47FmjmFQvs-aE";
-    var address1 = "";
-    var address2 = "";
-    var sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address1 + "&key=" + apiKEY;
+    var covidTestAddress = "";
+    var testSiteArray = []
+    var sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + covidTestAddress + "&key=" + apiKEY;
     var placeDetailsURL = "";
 
     //API key for hereAPI
@@ -12,7 +12,8 @@ $(document).ready(function () {
 
     // Returns Geo Positionging of the location, currently hardcoded to 07005
     var zipCode = '07005'
-    var geoCodeQuery = 'https://geocode.search.hereapi.com/v1/geocode?apikey=' + apiKey + '&q=' + zipCode + ';country=USA'
+    var geoCodeQuery = 'https://geocode.search.hereapi.com/v1/geocode?apikey=' + hereApiKey + '&q=' + zipCode + ';country=USA'
+
 
 
     function geoPosition_and_TestingSites() {
@@ -24,7 +25,6 @@ $(document).ready(function () {
 
         }).then(function (response) {
 
-            console.log(response)
 
             zipLat = response.items[0].position.lat
             zipLong = response.items[0].position.lng
@@ -33,7 +33,7 @@ $(document).ready(function () {
 
 
 
-            var discoverQueryURL = 'https://discover.search.hereapi.com/v1/discover?apikey=' + apiKey + '&q=Covid&at=' + zipLat + ',' + zipLong + '&limit=10'
+            var discoverQueryURL = 'https://discover.search.hereapi.com/v1/discover?apikey=' + hereApiKey + '&q=Covid&at=' + zipLat + ',' + zipLong + '&limit=10'
             $.ajax({
                 url: discoverQueryURL,
                 method: "GET"
@@ -41,7 +41,22 @@ $(document).ready(function () {
             }).then(function (response) {
 
                 console.log(response)
+                for (i = 0; i < response.items.length; i++) {
 
+                    var testSiteObject = {
+                        address: response.items[i].address.label.slice(23),
+                        phone: response.items[i].contacts[0].phone[0].value,
+                        website: response.items[i].contacts[0].www[0].value,
+                        lat: response.items[i].access[0].lat,
+                        long: response.items[i].access[0].lng,
+                    
+                    }
+
+                 
+                    testSiteArray.push(testSiteObject)
+                    
+                }
+                console.log(testSiteArray)
 
             });// closes nested Ajax
 
@@ -52,17 +67,10 @@ $(document).ready(function () {
 
 
 
-    address1 = "1+Richmond+St,+New+Brunswick,+NJ"
-    sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address1 + "&key=" + apiKEY;
-    $.ajax({
-        url: sampleURL,
-        method: "GET"
-    }).then(function (response) {
-        var startPlaceId = response.results[0].place_id;
-    });
 
-    address2 = "Rite+Aid,+Parsippany,+NJ"
-    sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address2 + "&key=" + apiKEY;
+
+    covidTestAddress = "Rite+Aid,+Parsippany,+NJ"
+    sampleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + covidTestAddress + "&key=" + apiKEY;
     $.ajax({
         url: sampleURL,
         method: "GET"
@@ -73,7 +81,7 @@ $(document).ready(function () {
     });
 
 
-
+    geoPosition_and_TestingSites();
 
 
 
