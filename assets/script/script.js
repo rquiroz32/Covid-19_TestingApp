@@ -3,12 +3,7 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
-
-function siteInfo(){
-    document.getElementById('siteInfo').innerHTML = "Test locations within 10 miles: <br> <br> Site1 <br> Site2 <br> Site3 <br> <br> (Backend team will finalize integrate API/JavaScript here)";
-}
-
-function myFunction() {
+function myFunction() {                        // Nav link Javascript
   var x = document.getElementById("myLinks");
   if (x.style.display === "block") {
     x.style.display = "none";
@@ -16,4 +11,10 @@ function myFunction() {
     x.style.display = "block";
   }
 }
+
+
+
+
+document.onclick(getElementById('search-button')).innerHTML = 'Test';
+
 
