@@ -10,7 +10,19 @@ $(document).ready(function () {
     var ratingArray = [];
     var phoneNumber = "";
     var phoneNumberArray = [];
-  
+   
+    var testSiteObject = {
+        address: '',
+        phone: '',
+        website:'',
+        lat:'',
+        long:'',
+        img:''
+
+
+    }
+
+
   var mapImgApiKey = "Z7n3t2fnai6LHriDt0pVcxWyZec1O8JJROrBAgjJlZM";
 
     
@@ -38,6 +50,16 @@ $(document).ready(function () {
         localStorage.setItem("past_zipcodes", oldSearchArray);
 
         geoPosition_and_TestingSites();
+
+        //change location to results page
+        
+        setTimeout(function(){ 
+            
+            window.location.href = "./result.html"; }, 500
+
+            );
+        
+
     })//closes zip code search on click event
 
 
@@ -145,17 +167,17 @@ $(document).ready(function () {
 
                 for (i = 0; i < response.items.length; i++) {
 
-                    var testSiteObject = {
-                        address: response.items[i].address.label.slice(23),
-                        phone: response.items[i].contacts[0].phone[0].value,
-                        website: response.items[i].contacts[0].www[0].value,
-                        lat: response.items[i].access[0].lat,
-                        long: response.items[i].access[0].lng,
-                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + zipLat + "," + zipLong + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
+                    
+                        testSiteObject.address = response.items[i].address.label.slice(23),
+                        testSiteObject.phone = response.items[i].contacts[0].phone[0].value,
+                        testSiteObject.website = response.items[i].contacts[0].www[0].value,
+                        testSiteObject.lat = response.items[i].access[0].lat,
+                        testSiteObject.long =  response.items[i].access[0].lng,
+                        testSiteObject.img = "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + zipLat + "," + zipLong + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
 
 
 
-                    }
+                    
 
                     testSiteArray.push(testSiteObject);
                   
