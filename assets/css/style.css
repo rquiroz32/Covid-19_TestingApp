@@ -19,7 +19,7 @@
     
 }
  /* Zo's container */
-.container{
+.container-fluid{
     width: 100%;
     padding:30px;
     background-color: lightseagreen;
@@ -30,7 +30,7 @@
 
 /* Nav bar code start- do not touch */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
   }
   
  
