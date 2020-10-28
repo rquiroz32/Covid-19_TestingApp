@@ -35,23 +35,24 @@ $(document).ready(function () {
 
         zipCode = $("#search-box").val().trim();
 
-        var  zipCodeNumCheck = parseInt(zipCode)
-
         var zipString = zipCode.toString();
 
-        //console.warn("length of zipcode entered is " + zipString.length)
+        console.warn("length of zipcode entered is " + zipString.length)
 
-        //if (!zipCode || zipCode === NaN ||zipString.length != 5) {
+        if (!zipCode || zipCode === NaN || zipString.length != 5) {
 
 
             //Open the modal for the error message
             //$('#modal1').modal('open');
 
-            //alert("THIS IS AN ERROR MESSAGE")
-            //return
+            alert("THIS IS AN ERROR MESSAGE")
+            return
+
+        } //closes input validation check
 
 
-        //else {
+
+        else {
 
             oldSearchArray.push(zipCode);
 
@@ -61,15 +62,15 @@ $(document).ready(function () {
 
             //change location to results page
 
-            // setTimeout(function () {
+             setTimeout(function () {
 
-            //     window.location.href = "./result.html";
-            // }, 500
+                 window.location.href = "./result.html";
+             }, 500
 
-            // ); // closes set timeout
+             ); // closes set timeout
 
-        //}
-        //}
+        
+        }  //closes closes else condition
 
     })//closes zip code search on click event
 
