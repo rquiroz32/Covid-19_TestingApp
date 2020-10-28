@@ -167,7 +167,7 @@ $(document).ready(function () {
 
             zipLat = response.items[0].position.lat
             zipLong = response.items[0].position.lng
-            console.log(response)
+            // console.log(response)
 
 
 
@@ -179,20 +179,28 @@ $(document).ready(function () {
                 method: "GET"
 
             }).then(function (response) {
+              
+
+               
+                console.log(response)
 
                 for (i = 0; i < response.items.length; i++) {
-
+                    
+                
+            
                     testSiteObject = {
                         address: response.items[i].address.label.slice(23),
                         phone: response.items[i].contacts[0].phone[0].value,
                         website: response.items[i].contacts[0].www[0].value,
                         lat: response.items[i].access[0].lat,
                         long: response.items[i].access[0].lng,
-                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + zipLat + "," + zipLong + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
+                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + lat + "," + long + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
                         
                     }
 
                     testSiteArray.push(testSiteObject);
+                    console.log(testSiteArray)
+
 
 
 
