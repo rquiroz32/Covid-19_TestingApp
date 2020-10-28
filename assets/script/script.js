@@ -1,20 +1,29 @@
-/*!
- * Materialize v1.0.0 (http://materializecss.com)
- * Copyright 2014-2017 Materialize
- * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
- */
-function myFunction() {                        // Nav link Javascript
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
+$(document).ready(function(){
+
+
+  function myFunction() {                        // Nav link Javascript
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
   }
-}
+
+  //Modal code
+
+  $("#loadingMessage").on("click",function(){
+
+    $("#modal2").modal()
+    
+    })
 
 
+  $("#errorMessage").on("click",function(){
 
+    $("#modal1").modal()
+    
+    })
 
-document.onclick(getElementById('search-button')).innerHTML = 'Test';
-
+})
 

@@ -44,7 +44,7 @@ body {
 
   
   .topnav a {
-    float: left;
+    /*float: left; */
     color: white;
     padding: 14px 16px;
     text-decoration: none;
@@ -134,3 +134,13 @@ footer{
 .color-here{
     color:yellow;
 }
+
+.modal{
+  background-color: lightseagreen;
+
+}
+ 
+p{
+  font-size: 16px;
+}
+
