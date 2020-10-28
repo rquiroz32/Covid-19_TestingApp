@@ -62,13 +62,16 @@ $(document).ready(function () {
 
             //change location to results page
 
-             setTimeout(function () {
+            //  setTimeout(function () {
 
+
+               
                  window.location.href = "./result.html";
                  //The delay has to be five seconds to ensure that all of the ajax calls happen before the page changes
              }, 5000
 
-             ); // closes set timeout
+
+            //  ); // closes set timeout
 
         
         }  //closes closes else condition
@@ -194,13 +197,17 @@ $(document).ready(function () {
 
 
 
-                    console.log(response)
-                    console.log(testSiteObject.img);
+                    // console.log(response)
+                    // console.log(testSiteObject.img);
+                    console.log(testSiteArray);
+
+                    localStorage.setItem("Results", JSON.stringify(testSiteArray));
+
 
 
                 }
                 //Feeding this information into a function to get more information
-                console.log("test site array is " + testSiteArray)
+                // console.log("test site array is " + testSiteArray)
 
                 getInfoFromGoogle(testSiteArray);
 
