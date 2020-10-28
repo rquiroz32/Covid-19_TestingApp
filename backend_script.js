@@ -65,7 +65,8 @@ $(document).ready(function () {
              setTimeout(function () {
 
                  window.location.href = "./result.html";
-             }, 500
+                 //The delay has to be five seconds to ensure that all of the ajax calls happen before the page changes
+             }, 5000
 
              ); // closes set timeout
 
@@ -144,7 +145,7 @@ $(document).ready(function () {
                 typeEstablishmentArray.push(newEstablishmentString);
 
                 //The zip code as well as the type of establishments for the ten sites within range are stored in local storage
-                localStorage.setItem(zipCode, typeEstablishmentArray);
+                localStorage.setItem("last_establishment_array", typeEstablishmentArray);
 
             });
         }// End of for loop
