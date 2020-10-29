@@ -77,6 +77,18 @@ $(document).ready(function () {
       estDisplay = "convenience store, drug store";
       estDisplayFinal = "Type of establishment: " + estDisplay;
     }
+    if (estDisplay == "convenience storedrugstorehealth care"){
+      estDisplay = "convenience store, drug store, health care";
+      estDisplayFinal = "Type of establishment: " + estDisplay;
+    }
+    if(estDisplay == "doctor's officehealth care"){
+      estDisplay = "doctor's office, health care";
+      estDisplayFinal = "Type of establishment: " + estDisplay;
+    }
+    if(estDisplay == "hospitalhealth care"){
+      estDisplay = "hospital, health care";
+      estDisplayFinal = "Type of establishment: " + estDisplay;
+    }
     if (!estDisplay) {
       estDisplay = "not available";
       estDisplayFinal = "Type: unknown";
