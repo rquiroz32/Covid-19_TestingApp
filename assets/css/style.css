@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
+
 @media only screen and (min-width: 992px) {
     
     .topnav a{
       font-size:40px !important;
     }
+
+    #search-box{
+      width: 30% !important;
+    }
+
   }
 
 *{
@@ -14,7 +20,7 @@
     
 }
  /* Zo's container */
-.container{
+.container-fluid{
     width: 100%;
     padding:30px;
     background-color: lightseagreen;
@@ -25,7 +31,7 @@
 
 /* Nav bar code start- do not touch */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
   }
   
  
@@ -39,7 +45,7 @@ body {
 
   
   .topnav a {
-    float: left;
+    /*float: left; */
     color: white;
     padding: 14px 16px;
     text-decoration: none;
@@ -72,10 +78,15 @@ h3{
 
 .flagLogo{
     width:20%;
+    border: none;
+    border-radius: 0;
 }
 
 img{
     width: 100%;
+    height: auto;
+    border: 1px solid yellow;
+    border-radius: 20px;
 }
 
 #search-box{
@@ -86,6 +97,7 @@ img{
     width: 40%;
     background-color: white;
     color: black;
+    height: 35px;
 }
 
 .topnav{
@@ -124,7 +136,12 @@ footer{
     color:yellow;
 }
 
-#myVideo {
- width: 200px;
- height:200px;
+.modal{
+  background-color: lightseagreen;
+
 }
+ 
+p{
+  font-size: 16px;
+}
+
