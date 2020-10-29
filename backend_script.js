@@ -121,9 +121,9 @@ $(document).ready(function () {
                     nameArray.push(nameEstablishment);
 
                     //In local storage we now have ratings and rakings for the last thing that was searched
-                    localStorage.setItem("lastratingsarray", ratingArray);
-                    localStorage.setItem("lastphonenumber", phoneNumberArray);
-                    localStorage.setItem("names_establishments", nameArray);
+                    localStorage.setItem("lastratingsarray", JSON.stringify(ratingArray));
+                    localStorage.setItem("lastphonenumber", JSON.stringify(phoneNumberArray));
+                    localStorage.setItem("names_establishments", JSON.stringify(nameArray));
 
                 });//Closing fxn after ajax call for google places
 
@@ -138,7 +138,7 @@ $(document).ready(function () {
                 var drugStore = typeEstablishment.includes("drugstore");
                 var doctor = typeEstablishment.includes("doctor");
                 var hospital = typeEstablishment.includes("hospital");
-                var healthCare = typeEstablishment.include("health");
+                var healthCare = typeEstablishment.includes("health");
 
                 if (convenienceStore) {
                     newEstablishmentString = newEstablishmentString + "convenience store";
@@ -160,7 +160,7 @@ $(document).ready(function () {
                 typeEstablishmentArray.push(newEstablishmentString);
 
                 //The zip code as well as the type of establishments for the ten sites within range are stored in local storage
-                localStorage.setItem("last_establishment_array", typeEstablishmentArray);
+                localStorage.setItem("last_establishment_array", JSON.stringify(typeEstablishmentArray));
 
             });
         }// End of for loop
