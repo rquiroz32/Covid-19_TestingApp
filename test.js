@@ -6,8 +6,8 @@
 // Or with jQuery
 
 $(document).ready(function(){
-  $('.modal').on("click", function(){
-    console.log();
-  });
+  $("#test123").on("click",function(){
+    $("#modal1").modal()
+  })
 });
         
