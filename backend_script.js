@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     // on click event to search by zip code and return covid test sites
     $("#errorMessage").on("click", function (event) {
-        console.log("test0");
+
         event.preventDefault();
 
         zipCode = $("#search-box").val().trim();
@@ -48,7 +48,10 @@ $(document).ready(function () {
             //Open the modal for the error message
             //$('#modal1').modal('open');
 
-            alert("THIS IS AN ERROR MESSAGE")
+            //alert("THIS IS AN ERROR MESSAGE")
+            
+                $("#modal1").modal("open")
+                
             return
 
         } //closes input validation check
@@ -56,7 +59,9 @@ $(document).ready(function () {
 
 
         else {
-            console.log("test2");
+
+            $("#modal2").modal("open")
+
             oldSearchArray.push(zipCode);
 
             localStorage.setItem("past_zipcodes", oldSearchArray);
@@ -65,19 +70,12 @@ $(document).ready(function () {
 
             //change location to results page
 
-
-              setTimeout(function () {
-
-             
-
+             setTimeout(function () {
+                
                  window.location.href = "./result.html";
-                 //The delay has to be five seconds to ensure that all of the ajax calls happen before the page changes
              }, 5000
 
-
-
-              ); // closes set timeout
-
+             ); // closes set timeout
 
         
         }  //closes closes else condition
@@ -209,7 +207,7 @@ $(document).ready(function () {
                         website: response.items[i].contacts[0].www[0].value,
                         lat: response.items[i].access[0].lat,
                         long: response.items[i].access[0].lng,
-                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + lat + "," + long + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
+                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + response.items[i].access[0].lat + "," + response.items[i].access[0].lng + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
                         
                     }
 
