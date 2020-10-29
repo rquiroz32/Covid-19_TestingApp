@@ -1,3 +1,4 @@
+  
 $(document).ready(function () {
     var apiKEY = "AIzaSyBNh5KfG7ZYFdl2CMuBiP47FmjmFQvs-aE";
     var covidTestAddress = "";
@@ -62,16 +63,19 @@ $(document).ready(function () {
 
             //change location to results page
 
-            //  setTimeout(function () {
 
+              setTimeout(function () {
 
-               
+             
+
                  window.location.href = "./result.html";
                  //The delay has to be five seconds to ensure that all of the ajax calls happen before the page changes
              }, 5000
 
 
-            //  ); // closes set timeout
+
+              ); // closes set timeout
+
 
         
         }  //closes closes else condition
@@ -199,10 +203,12 @@ $(document).ready(function () {
 
                     // console.log(response)
                     // console.log(testSiteObject.img);
-                    console.log(testSiteArray);
+
+
+                    // console.log(testSiteArray);
 
                     localStorage.setItem("Results", JSON.stringify(testSiteArray));
-
+                    
 
 
                 }
@@ -210,6 +216,10 @@ $(document).ready(function () {
                 // console.log("test site array is " + testSiteArray)
 
                 getInfoFromGoogle(testSiteArray);
+
+                var testOb = JSON.parse(localStorage.getItem("Results", testSiteArray))
+                    console.log(testOb);
+
 
 
 
@@ -221,4 +231,6 @@ $(document).ready(function () {
     }
 
 
+
 })// closes doc.ready function
+
