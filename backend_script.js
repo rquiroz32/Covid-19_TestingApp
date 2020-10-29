@@ -11,6 +11,8 @@ $(document).ready(function () {
     var ratingArray = [];
     var phoneNumber = "";
     var phoneNumberArray = [];
+    var nameEstablishment = "";
+    var nameArray = [];
 
     var mapImgApiKey = "Z7n3t2fnai6LHriDt0pVcxWyZec1O8JJROrBAgjJlZM";
 
@@ -29,9 +31,9 @@ $(document).ready(function () {
     ////////////Modal initialization (I'm not sure but it seems this needs to be done before all modals are actually called)
     $('.modal').modal();
 
-
     // on click event to search by zip code and return covid test sites
     $("#errorMessage").on("click", function (event) {
+
         event.preventDefault();
 
         zipCode = $("#search-box").val().trim();
@@ -41,7 +43,7 @@ $(document).ready(function () {
         console.warn("length of zipcode entered is " + zipString.length)
 
         if (!zipCode || zipCode === NaN || zipString.length != 5) {
-
+            console.log("test1");
 
             //Open the modal for the error message
             //$('#modal1').modal('open');
@@ -106,6 +108,7 @@ $(document).ready(function () {
                 }).then(function (response) {
                     rating = JSON.stringify(response.result.rating);
                     phoneNumber = JSON.stringify(response.result.formatted_phone_number);
+                    nameEstablishment = JSON.stringify(response.result.name);
 
                     if (rating == undefined) {
                         rating = "none available";
@@ -115,10 +118,12 @@ $(document).ready(function () {
                     }
                     ratingArray.push(rating);
                     phoneNumberArray.push(phoneNumber);
+                    nameArray.push(nameEstablishment);
 
                     //In local storage we now have ratings and rakings for the last thing that was searched
                     localStorage.setItem("lastratingsarray", ratingArray);
                     localStorage.setItem("lastphonenumber", phoneNumberArray);
+                    localStorage.setItem("names_establishments", nameArray);
 
                 });//Closing fxn after ajax call for google places
 
@@ -133,6 +138,7 @@ $(document).ready(function () {
                 var drugStore = typeEstablishment.includes("drugstore");
                 var doctor = typeEstablishment.includes("doctor");
                 var hospital = typeEstablishment.includes("hospital");
+                var healthCare = typeEstablishment.include("health");
 
                 if (convenienceStore) {
                     newEstablishmentString = newEstablishmentString + "convenience store";
@@ -146,6 +152,10 @@ $(document).ready(function () {
                 if (hospital) {
                     newEstablishmentString = newEstablishmentString + "hospital";
                 }
+                if(healthCare){
+                    newEstablishmentString = newEstablishmentString + "health care";
+                }
+
                 //Creates an indexed array of info on the locations, so we will only alert for convenience stores, drugstores, doctor's offices, and hospitals
                 typeEstablishmentArray.push(newEstablishmentString);
 
