@@ -1,3 +1,4 @@
+
 <h1 align = "center" > NJ Covid-19 Testing App </h1>
 
 <h2>Screenshot of Deployed application on various devices<h2>
@@ -39,3 +40,5 @@ Members for the Project below include:<br>
 
 <h2> Link to deployed application <h2> https://almonzorhoden.github.io/Project-1/ <strong>(Project 1 name decision ? In Progress)</strong>
 
+=======
+# Covid-19 Testing App
