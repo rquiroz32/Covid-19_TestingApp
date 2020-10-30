@@ -205,7 +205,7 @@ $(document).ready(function () {
                         website: response.items[i].contacts[0].www[0].value,
                         lat: response.items[i].access[0].lat,
                         long: response.items[i].access[0].lng,
-                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + response.items[i].access[0].lat + "," + response.items[i].access[0].lng + "&poitxs=16&poitxc=black&poifc=yellow&z=14&apiKey=" + mapImgApiKey
+                        img: "https://image.maps.ls.hereapi.com/mia/1.6/mapview?poi=" + response.items[i].access[0].lat + "," + response.items[i].access[0].lng + "&poitxs=16&poitxc=black&poifc=yellow&z=15&apiKey=" + mapImgApiKey
                         
                     }
 
