@@ -8,7 +8,7 @@
 
 ![Tablet](https://user-images.githubusercontent.com/61447353/97652037-e5716400-1a33-11eb-82fc-003e0dc4a35e.PNG)
 
-![Desktop](https://user-images.githubusercontent.com/61447353/97649963-05eaef80-1a2f-11eb-8c9d-893b42e646fa.PNG)
+![Desktop](https://user-images.githubusercontent.com/61447353/97765519-c8e33380-1ae8-11eb-8f41-890e1b033923.PNG)
 
 
 <h2> Descripition </h2>
@@ -23,7 +23,7 @@ People need to get easy, straightforward, and accessible information fast regard
 
 
 
-This is finished product of the <strong>"NJ-Covid-19 Testing App" for Team 4, Project one,</strong> we incorparated Materialize.css, HTML, CSS, JavaScript, API's, AJAX, and JQuery.
+This is the finished product of the <strong>"NJ-Covid-19 Testing App" for Team 4, Project one,</strong> we incorparated Materialize.css, HTML, CSS, JavaScript, API's, AJAX, and JQuery.
 
 Members for the Project below include:<br>
 
@@ -38,7 +38,4 @@ Members for the Project below include:<br>
 <strong>Richard Quiroz</strong> <br>
 
 
-<h2> Link to deployed application <h2> https://almonzorhoden.github.io/Project-1/ <strong>(Project 1 name decision ? In Progress)</strong>
-
-=======
-# Covid-19 Testing App
+<h2> Link to deployed application <h2> : https://rquiroz32.github.io/Covid-19_TestingApp/
