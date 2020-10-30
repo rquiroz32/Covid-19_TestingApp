@@ -11,8 +11,7 @@ $(document).ready(function () {
     var ratingArray = [];
     var phoneNumber = "";
     var phoneNumberArray = [];
-    var nameEstablishment = "";
-    var nameArray = [];
+
 
     var mapImgApiKey = "Z7n3t2fnai6LHriDt0pVcxWyZec1O8JJROrBAgjJlZM";
 
@@ -108,7 +107,6 @@ $(document).ready(function () {
                 }).then(function (response) {
                     rating = JSON.stringify(response.result.rating);
                     phoneNumber = JSON.stringify(response.result.formatted_phone_number);
-                    nameEstablishment = JSON.stringify(response.result.name);
 
                     if (rating == undefined) {
                         rating = "none available";
@@ -118,12 +116,12 @@ $(document).ready(function () {
                     }
                     ratingArray.push(rating);
                     phoneNumberArray.push(phoneNumber);
-                    nameArray.push(nameEstablishment);
+
 
                     //In local storage we now have ratings and rakings for the last thing that was searched
                     localStorage.setItem("lastratingsarray", JSON.stringify(ratingArray));
                     localStorage.setItem("lastphonenumber", JSON.stringify(phoneNumberArray));
-                    localStorage.setItem("names_establishments", JSON.stringify(nameArray));
+
 
                 });//Closing fxn after ajax call for google places
 

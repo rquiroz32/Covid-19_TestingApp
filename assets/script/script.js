@@ -22,13 +22,11 @@ $(document).ready(function () {
   } //closes for loop
 
   var resultsObj = JSON.parse(localStorage.getItem("Results"));
-  console.log(resultsObj);
 
 
 
 
   for (var i = 0; i < resultsObj.length; i++) {
-    console.log(resultsObj[i].address)
 
     $("#result" + i).text(resultsObj[i].address)
     var imgTag = $("<img>");
@@ -42,14 +40,12 @@ $(document).ready(function () {
   var estString = "";
   var phoneList = "";
   var ratingList = "";
+  var addressList = "";
 
-  //Gets names from local storage
-  nameEst_list = JSON.parse(localStorage.getItem("names_establishments"));
 
   //Gets type of location from local storage
   estString = JSON.parse(localStorage.getItem("last_establishment_array"));
-  console.log(estString);
- 
+
   //Gets phone numbers
   phoneList = JSON.parse(localStorage.getItem("lastphonenumber"));
 
@@ -57,6 +53,8 @@ $(document).ready(function () {
   //Gets ratings
   ratingList = JSON.parse(localStorage.getItem("lastratingsarray"));
 
+  //Get addresses from local storage
+  addressList = JSON.parse(localStorage.getItem("Results"));
 
   //NEED TO REPLACE WITH resultInfo once I get html from Hever
   var resultEl = $(".result");
@@ -65,27 +63,27 @@ $(document).ready(function () {
     //Gets the element to display to
     var displayEl = resultEl[i];
 
-    //Displaying name of establishment
-    var nameToDisplay = nameEst_list[i];
-    nameToDisplay = nameToDisplay.replace(/\"/g, "");
+    //Getting addresses
+    var addressToDisplay = addressList[i].address;
+
 
     //Displaying the type of establishment
     var estDisplay = estString[i];
-    console.log(estDisplay);
+
     var estDisplayFinal = "Type of establishment: " + estDisplay;
     if (estDisplay == "convenience storedrugstore") {
       estDisplay = "convenience store, drug store";
       estDisplayFinal = "Type of establishment: " + estDisplay;
     }
-    if (estDisplay == "convenience storedrugstorehealth care"){
+    if (estDisplay == "convenience storedrugstorehealth care") {
       estDisplay = "convenience store, drug store, health care";
       estDisplayFinal = "Type of establishment: " + estDisplay;
     }
-    if(estDisplay == "doctor's officehealth care"){
+    if (estDisplay == "doctor's officehealth care") {
       estDisplay = "doctor's office, health care";
       estDisplayFinal = "Type of establishment: " + estDisplay;
     }
-    if(estDisplay == "hospitalhealth care"){
+    if (estDisplay == "hospitalhealth care") {
       estDisplay = "hospital, health care";
       estDisplayFinal = "Type of establishment: " + estDisplay;
     }
@@ -109,10 +107,9 @@ $(document).ready(function () {
     if (ratingDisplay == "none available") {
       ratingDisplayFinal = "Not rated on Google";
     }
-    var textToDisplay = nameToDisplay + "<br>" + estDisplayFinal + "<br>" + phoneDisplayFinal + "<br>" + ratingDisplayFinal;
+    var textToDisplay = addressToDisplay + "<br>" + estDisplayFinal + "<br>" + phoneDisplayFinal + "<br>" + ratingDisplayFinal;
     displayEl.innerHTML = textToDisplay;
 
-    console.log(textToDisplay);
   }
 
 
