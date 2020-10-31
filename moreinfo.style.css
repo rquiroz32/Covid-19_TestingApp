@@ -38,7 +38,9 @@ body {
     position: relative;
   }
   
-
+.topnav a:hover {
+    color: yellow;
+  }
   
   .topnav a {
     /* float: left; */
