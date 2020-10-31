@@ -81,6 +81,9 @@ h3{
 
 }
 
+.topnav a:hover {
+  color: yellow;
+}
 
 .topnav{
     font-weight: bold;
