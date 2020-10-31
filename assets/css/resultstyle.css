@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-/* @media only screen and (min-width: 992px) {
+ @media only screen and (min-width: 992px) {
     
     .topnav a{
       font-size:40px !important;
@@ -10,7 +10,7 @@
       width: 30% !important;
     }
 
-  } */
+  }
 
 *{
     box-sizing: border-box;
